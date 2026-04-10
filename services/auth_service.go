@@ -54,7 +54,7 @@ func (s *AuthService) VerifyFirebaseToken(firebaseToken string) (string, *models
 			LastLoginAt:   &now,
 		}
 		if err := s.userRepo.Create(user); err != nil {
-			return "", nil, errors.New("gagal membuat user baru")
+			return "", nil, errors.New("gagal membuat user baru") //ini untuk peringatan ketika sudah ada user dengan data yang sama di database
 		}
 	} else if err != nil {
 		return "", nil, errors.New("error mengambil data user")
